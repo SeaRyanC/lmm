@@ -451,16 +451,16 @@
         }
         if (a3 === b2) return 0;
         let x3 = a3.length;
-        let y3 = b2.length;
-        for (let i3 = 0, len = Math.min(x3, y3); i3 < len; ++i3) {
+        let y4 = b2.length;
+        for (let i3 = 0, len = Math.min(x3, y4); i3 < len; ++i3) {
           if (a3[i3] !== b2[i3]) {
             x3 = a3[i3];
-            y3 = b2[i3];
+            y4 = b2[i3];
             break;
           }
         }
-        if (x3 < y3) return -1;
-        if (y3 < x3) return 1;
+        if (x3 < y4) return -1;
+        if (y4 < x3) return 1;
         return 0;
       };
       Buffer3.isEncoding = function isEncoding(encoding) {
@@ -710,19 +710,19 @@
         thisEnd >>>= 0;
         if (this === target) return 0;
         let x3 = thisEnd - thisStart;
-        let y3 = end - start;
-        const len = Math.min(x3, y3);
+        let y4 = end - start;
+        const len = Math.min(x3, y4);
         const thisCopy = this.slice(thisStart, thisEnd);
         const targetCopy = target.slice(start, end);
         for (let i3 = 0; i3 < len; ++i3) {
           if (thisCopy[i3] !== targetCopy[i3]) {
             x3 = thisCopy[i3];
-            y3 = targetCopy[i3];
+            y4 = targetCopy[i3];
             break;
           }
         }
-        if (x3 < y3) return -1;
-        if (y3 < x3) return 1;
+        if (x3 < y4) return -1;
+        if (y4 < x3) return 1;
         return 0;
       };
       function bidirectionalIndexOf(buffer, val, byteOffset, encoding, dir) {
@@ -1889,18 +1889,18 @@
                 return 0;
               }
               var x3 = a3.length;
-              var y3 = b2.length;
-              for (var i3 = 0, len = Math.min(x3, y3); i3 < len; ++i3) {
+              var y4 = b2.length;
+              for (var i3 = 0, len = Math.min(x3, y4); i3 < len; ++i3) {
                 if (a3[i3] !== b2[i3]) {
                   x3 = a3[i3];
-                  y3 = b2[i3];
+                  y4 = b2[i3];
                   break;
                 }
               }
-              if (x3 < y3) {
+              if (x3 < y4) {
                 return -1;
               }
-              if (y3 < x3) {
+              if (y4 < x3) {
                 return 1;
               }
               return 0;
@@ -10912,16 +10912,16 @@
             }
             if (a3 === b2) return 0;
             var x3 = a3.length;
-            var y3 = b2.length;
-            for (var i3 = 0, len = Math.min(x3, y3); i3 < len; ++i3) {
+            var y4 = b2.length;
+            for (var i3 = 0, len = Math.min(x3, y4); i3 < len; ++i3) {
               if (a3[i3] !== b2[i3]) {
                 x3 = a3[i3];
-                y3 = b2[i3];
+                y4 = b2[i3];
                 break;
               }
             }
-            if (x3 < y3) return -1;
-            if (y3 < x3) return 1;
+            if (x3 < y4) return -1;
+            if (y4 < x3) return 1;
             return 0;
           };
           Buffer3.isEncoding = function isEncoding(encoding) {
@@ -11159,19 +11159,19 @@
             thisEnd >>>= 0;
             if (this === target) return 0;
             var x3 = thisEnd - thisStart;
-            var y3 = end - start;
-            var len = Math.min(x3, y3);
+            var y4 = end - start;
+            var len = Math.min(x3, y4);
             var thisCopy = this.slice(thisStart, thisEnd);
             var targetCopy = target.slice(start, end);
             for (var i3 = 0; i3 < len; ++i3) {
               if (thisCopy[i3] !== targetCopy[i3]) {
                 x3 = thisCopy[i3];
-                y3 = targetCopy[i3];
+                y4 = targetCopy[i3];
                 break;
               }
             }
-            if (x3 < y3) return -1;
-            if (y3 < x3) return 1;
+            if (x3 < y4) return -1;
+            if (y4 < x3) return 1;
             return 0;
           };
           function bidirectionalIndexOf(buffer, val, byteOffset, encoding, dir) {
@@ -20526,7 +20526,7 @@
                 this.maxX = maxX;
                 this.maxY = maxY;
               }
-              BBox2.prototype.addPoint = function addPoint(x3, y3) {
+              BBox2.prototype.addPoint = function addPoint(x3, y4) {
                 if (Math.abs(x3) !== Infinity) {
                   if (x3 < this.minX) {
                     this.minX = x3;
@@ -20535,12 +20535,12 @@
                     this.maxX = x3;
                   }
                 }
-                if (Math.abs(y3) !== Infinity) {
-                  if (y3 < this.minY) {
-                    this.minY = y3;
+                if (Math.abs(y4) !== Infinity) {
+                  if (y4 < this.minY) {
+                    this.minY = y4;
                   }
-                  if (y3 > this.maxY) {
-                    this.maxY = y3;
+                  if (y4 > this.maxY) {
+                    this.maxY = y4;
                   }
                 }
               };
@@ -20889,15 +20889,15 @@
                   get: function get() {
                     var bbox = new BBox();
                     var x3 = 0;
-                    var y3 = 0;
+                    var y4 = 0;
                     for (var index = 0; index < this.glyphs.length; index++) {
                       var glyph2 = this.glyphs[index];
                       var p3 = this.positions[index];
                       var b2 = glyph2.bbox;
-                      bbox.addPoint(b2.minX + x3 + p3.xOffset, b2.minY + y3 + p3.yOffset);
-                      bbox.addPoint(b2.maxX + x3 + p3.xOffset, b2.maxY + y3 + p3.yOffset);
+                      bbox.addPoint(b2.minX + x3 + p3.xOffset, b2.minY + y4 + p3.yOffset);
+                      bbox.addPoint(b2.maxX + x3 + p3.xOffset, b2.maxY + y4 + p3.yOffset);
                       x3 += p3.xAdvance;
-                      y3 += p3.yAdvance;
+                      y4 += p3.yAdvance;
                     }
                     return bbox;
                   }
@@ -41973,7 +41973,7 @@
               };
               GPOSProcessor2.prototype.getAnchor = function getAnchor(anchor) {
                 var x3 = anchor.xCoordinate;
-                var y3 = anchor.yCoordinate;
+                var y4 = anchor.yCoordinate;
                 var variationProcessor = this.font._variationProcessor;
                 var variationStore = this.font.GDEF && this.font.GDEF.itemVariationStore;
                 if (variationProcessor && variationStore) {
@@ -41981,12 +41981,12 @@
                     x3 += variationProcessor.getDelta(variationStore, anchor.xDeviceTable.a, anchor.xDeviceTable.b);
                   }
                   if (anchor.yDeviceTable) {
-                    y3 += variationProcessor.getDelta(variationStore, anchor.yDeviceTable.a, anchor.yDeviceTable.b);
+                    y4 += variationProcessor.getDelta(variationStore, anchor.yDeviceTable.a, anchor.yDeviceTable.b);
                   }
                 }
                 return {
                   x: x3,
-                  y: y3
+                  y: y4
                 };
               };
               GPOSProcessor2.prototype.applyFeatures = function applyFeatures(userFeatures, glyphs, advances) {
@@ -42343,25 +42343,25 @@
                   var c3 = _ref2;
                   var args = [];
                   for (var _i22 = 0; _i22 < c3.args.length; _i22 += 2) {
-                    var _fn = fn(c3.args[_i22], c3.args[_i22 + 1]), x3 = _fn[0], y3 = _fn[1];
-                    args.push(x3, y3);
+                    var _fn = fn(c3.args[_i22], c3.args[_i22 + 1]), x3 = _fn[0], y4 = _fn[1];
+                    args.push(x3, y4);
                   }
                   path[c3.command].apply(path, args);
                 }
                 return path;
               };
               Path2.prototype.transform = function transform(m0, m1, m22, m32, m4, m5) {
-                return this.mapPoints(function(x3, y3) {
-                  x3 = m0 * x3 + m22 * y3 + m4;
-                  y3 = m1 * x3 + m32 * y3 + m5;
+                return this.mapPoints(function(x3, y4) {
+                  x3 = m0 * x3 + m22 * y4 + m4;
+                  y4 = m1 * x3 + m32 * y4 + m5;
                   return [
                     x3,
-                    y3
+                    y4
                   ];
                 });
               };
-              Path2.prototype.translate = function translate(x3, y3) {
-                return this.transform(1, 0, 0, 1, x3, y3);
+              Path2.prototype.translate = function translate(x3, y4) {
+                return this.transform(1, 0, 0, 1, x3, y4);
               };
               Path2.prototype.rotate = function rotate(angle) {
                 var cos = Math.cos(angle);
@@ -42427,10 +42427,10 @@
                       switch (c3.command) {
                         case "moveTo":
                         case "lineTo":
-                          var _c$args = c3.args, x3 = _c$args[0], y3 = _c$args[1];
-                          bbox.addPoint(x3, y3);
+                          var _c$args = c3.args, x3 = _c$args[0], y4 = _c$args[1];
+                          bbox.addPoint(x3, y4);
                           cx = x3;
-                          cy = y3;
+                          cy = y4;
                           break;
                         case "quadraticCurveTo":
                         case "bezierCurveTo":
@@ -42978,12 +42978,12 @@
             var Point = (function() {
               function Point2(onCurve, endContour) {
                 var x3 = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0;
-                var y3 = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 0;
+                var y4 = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 0;
                 _classCallCheck(this, Point2);
                 this.onCurve = onCurve;
                 this.endContour = endContour;
                 this.x = x3;
-                this.y = y3;
+                this.y = y4;
               }
               Point2.prototype.copy = function copy() {
                 return new Point2(this.onCurve, this.endContour, this.x, this.y);
@@ -43177,8 +43177,8 @@
                       for (var j4 = 0; j4 < contour.length; j4++) {
                         var _point = contour[j4];
                         var x3 = _point.x * component.scaleX + _point.y * component.scale01 + component.dx;
-                        var y3 = _point.y * component.scaleY + _point.x * component.scale10 + component.dy;
-                        points.push(new Point(_point.onCurve, _point.endContour, x3, y3));
+                        var y4 = _point.y * component.scaleY + _point.x * component.scale10 + component.dy;
+                        points.push(new Point(_point.onCurve, _point.endContour, x3, y4));
                       }
                     }
                   }
@@ -43295,7 +43295,7 @@
                 var trans = [];
                 var width = null;
                 var nStems = 0;
-                var x3 = 0, y3 = 0;
+                var x3 = 0, y4 = 0;
                 var usedGsubrs = void 0;
                 var usedSubrs = void 0;
                 var open = false;
@@ -43321,11 +43321,11 @@
                   nStems += stack.length >> 1;
                   return stack.length = 0;
                 }
-                function moveTo(x4, y4) {
+                function moveTo(x4, y5) {
                   if (open) {
                     path.closePath();
                   }
-                  path.moveTo(x4, y4);
+                  path.moveTo(x4, y5);
                   open = true;
                 }
                 var parse = function parse2() {
@@ -43343,14 +43343,14 @@
                           if (stack.length > 1) {
                             checkWidth();
                           }
-                          y3 += stack.shift();
-                          moveTo(x3, y3);
+                          y4 += stack.shift();
+                          moveTo(x3, y4);
                           break;
                         case 5:
                           while (stack.length >= 2) {
                             x3 += stack.shift();
-                            y3 += stack.shift();
-                            path.lineTo(x3, y3);
+                            y4 += stack.shift();
+                            path.lineTo(x3, y4);
                           }
                           break;
                         case 6:
@@ -43360,21 +43360,21 @@
                             if (phase) {
                               x3 += stack.shift();
                             } else {
-                              y3 += stack.shift();
+                              y4 += stack.shift();
                             }
-                            path.lineTo(x3, y3);
+                            path.lineTo(x3, y4);
                             phase = !phase;
                           }
                           break;
                         case 8:
                           while (stack.length > 0) {
                             var c1x = x3 + stack.shift();
-                            var c1y = y3 + stack.shift();
+                            var c1y = y4 + stack.shift();
                             var c2x = c1x + stack.shift();
                             var c2y = c1y + stack.shift();
                             x3 = c2x + stack.shift();
-                            y3 = c2y + stack.shift();
-                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y3);
+                            y4 = c2y + stack.shift();
+                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y4);
                           }
                           break;
                         case 10:
@@ -43449,43 +43449,43 @@
                             checkWidth();
                           }
                           x3 += stack.shift();
-                          y3 += stack.shift();
-                          moveTo(x3, y3);
+                          y4 += stack.shift();
+                          moveTo(x3, y4);
                           break;
                         case 22:
                           if (stack.length > 1) {
                             checkWidth();
                           }
                           x3 += stack.shift();
-                          moveTo(x3, y3);
+                          moveTo(x3, y4);
                           break;
                         case 24:
                           while (stack.length >= 8) {
                             var c1x = x3 + stack.shift();
-                            var c1y = y3 + stack.shift();
+                            var c1y = y4 + stack.shift();
                             var c2x = c1x + stack.shift();
                             var c2y = c1y + stack.shift();
                             x3 = c2x + stack.shift();
-                            y3 = c2y + stack.shift();
-                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y3);
+                            y4 = c2y + stack.shift();
+                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y4);
                           }
                           x3 += stack.shift();
-                          y3 += stack.shift();
-                          path.lineTo(x3, y3);
+                          y4 += stack.shift();
+                          path.lineTo(x3, y4);
                           break;
                         case 25:
                           while (stack.length >= 8) {
                             x3 += stack.shift();
-                            y3 += stack.shift();
-                            path.lineTo(x3, y3);
+                            y4 += stack.shift();
+                            path.lineTo(x3, y4);
                           }
                           var c1x = x3 + stack.shift();
-                          var c1y = y3 + stack.shift();
+                          var c1y = y4 + stack.shift();
                           var c2x = c1x + stack.shift();
                           var c2y = c1y + stack.shift();
                           x3 = c2x + stack.shift();
-                          y3 = c2y + stack.shift();
-                          path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y3);
+                          y4 = c2y + stack.shift();
+                          path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y4);
                           break;
                         case 26:
                           if (stack.length % 2) {
@@ -43493,26 +43493,26 @@
                           }
                           while (stack.length >= 4) {
                             c1x = x3;
-                            c1y = y3 + stack.shift();
+                            c1y = y4 + stack.shift();
                             c2x = c1x + stack.shift();
                             c2y = c1y + stack.shift();
                             x3 = c2x;
-                            y3 = c2y + stack.shift();
-                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y3);
+                            y4 = c2y + stack.shift();
+                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y4);
                           }
                           break;
                         case 27:
                           if (stack.length % 2) {
-                            y3 += stack.shift();
+                            y4 += stack.shift();
                           }
                           while (stack.length >= 4) {
                             c1x = x3 + stack.shift();
-                            c1y = y3;
+                            c1y = y4;
                             c2x = c1x + stack.shift();
                             c2y = c1y + stack.shift();
                             x3 = c2x + stack.shift();
-                            y3 = c2y;
-                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y3);
+                            y4 = c2y;
+                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y4);
                           }
                           break;
                         case 28:
@@ -43538,20 +43538,20 @@
                           while (stack.length >= 4) {
                             if (phase) {
                               c1x = x3 + stack.shift();
-                              c1y = y3;
+                              c1y = y4;
                               c2x = c1x + stack.shift();
                               c2y = c1y + stack.shift();
-                              y3 = c2y + stack.shift();
+                              y4 = c2y + stack.shift();
                               x3 = c2x + (stack.length === 1 ? stack.shift() : 0);
                             } else {
                               c1x = x3;
-                              c1y = y3 + stack.shift();
+                              c1y = y4 + stack.shift();
                               c2x = c1x + stack.shift();
                               c2y = c1y + stack.shift();
                               x3 = c2x + stack.shift();
-                              y3 = c2y + (stack.length === 1 ? stack.shift() : 0);
+                              y4 = c2y + (stack.length === 1 ? stack.shift() : 0);
                             }
-                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y3);
+                            path.bezierCurveTo(c1x, c1y, c2x, c2y, x3, y4);
                             phase = !phase;
                           }
                           break;
@@ -43674,7 +43674,7 @@
                               break;
                             case 34:
                               c1x = x3 + stack.shift();
-                              c1y = y3;
+                              c1y = y4;
                               c2x = c1x + stack.shift();
                               c2y = c1y + stack.shift();
                               var c3x = c2x + stack.shift();
@@ -43686,7 +43686,7 @@
                               var c6x = c5x + stack.shift();
                               var c6y = c5y;
                               x3 = c6x;
-                              y3 = c6y;
+                              y4 = c6y;
                               path.bezierCurveTo(c1x, c1y, c2x, c2y, c3x, c3y);
                               path.bezierCurveTo(c4x, c4y, c5x, c5y, c6x, c6y);
                               break;
@@ -43694,8 +43694,8 @@
                               var pts = [];
                               for (var _i3 = 0; _i3 <= 5; _i3++) {
                                 x3 += stack.shift();
-                                y3 += stack.shift();
-                                pts.push(x3, y3);
+                                y4 += stack.shift();
+                                pts.push(x3, y4);
                               }
                               path.bezierCurveTo.apply(path, pts.slice(0, 6));
                               path.bezierCurveTo.apply(path, pts.slice(6));
@@ -43703,7 +43703,7 @@
                               break;
                             case 36:
                               c1x = x3 + stack.shift();
-                              c1y = y3 + stack.shift();
+                              c1y = y4 + stack.shift();
                               c2x = c1x + stack.shift();
                               c2y = c1y + stack.shift();
                               c3x = c2x + stack.shift();
@@ -43715,27 +43715,27 @@
                               c6x = c5x + stack.shift();
                               c6y = c5y;
                               x3 = c6x;
-                              y3 = c6y;
+                              y4 = c6y;
                               path.bezierCurveTo(c1x, c1y, c2x, c2y, c3x, c3y);
                               path.bezierCurveTo(c4x, c4y, c5x, c5y, c6x, c6y);
                               break;
                             case 37:
                               var startx = x3;
-                              var starty = y3;
+                              var starty = y4;
                               pts = [];
                               for (var _i4 = 0; _i4 <= 4; _i4++) {
                                 x3 += stack.shift();
-                                y3 += stack.shift();
-                                pts.push(x3, y3);
+                                y4 += stack.shift();
+                                pts.push(x3, y4);
                               }
-                              if (Math.abs(x3 - startx) > Math.abs(y3 - starty)) {
+                              if (Math.abs(x3 - startx) > Math.abs(y4 - starty)) {
                                 x3 += stack.shift();
-                                y3 = starty;
+                                y4 = starty;
                               } else {
                                 x3 = startx;
-                                y3 += stack.shift();
+                                y4 += stack.shift();
                               }
-                              pts.push(x3, y3);
+                              pts.push(x3, y4);
                               path.bezierCurveTo.apply(path, pts.slice(0, 6));
                               path.bezierCurveTo.apply(path, pts.slice(6));
                               break;
@@ -44350,14 +44350,14 @@
                   var c3 = path.commands[i4];
                   for (var j4 = 0; j4 < c3.args.length; j4 += 2) {
                     var x3 = c3.args[j4];
-                    var y3 = c3.args[j4 + 1];
+                    var y4 = c3.args[j4 + 1];
                     var flag = 0;
                     if (c3.command === "quadraticCurveTo" && j4 === 2) {
                       var next = path.commands[i4 + 1];
                       if (next && next.command === "quadraticCurveTo") {
                         var midX = (lastX + next.args[0]) / 2;
                         var midY = (lastY + next.args[1]) / 2;
-                        if (x3 === midX && y3 === midY) {
+                        if (x3 === midX && y4 === midY) {
                           continue;
                         }
                       }
@@ -44366,7 +44366,7 @@
                       flag |= ON_CURVE$1;
                     }
                     flag = this._encodePoint(x3, lastX, xPoints, flag, X_SHORT_VECTOR$1, SAME_X$1);
-                    flag = this._encodePoint(y3, lastY, yPoints, flag, Y_SHORT_VECTOR$1, SAME_Y$1);
+                    flag = this._encodePoint(y4, lastY, yPoints, flag, Y_SHORT_VECTOR$1, SAME_Y$1);
                     if (flag === lastFlag && same < 255) {
                       flags[flags.length - 1] |= REPEAT$1;
                       same++;
@@ -44379,7 +44379,7 @@
                       lastFlag = flag;
                     }
                     lastX = x3;
-                    lastY = y3;
+                    lastY = y4;
                     pointCount++;
                   }
                   if (c3.command === "closePath") {
@@ -45463,8 +45463,8 @@
               return flag & 1 ? baseval : -baseval;
             }
             function decodeTriplet(flags, glyphs, nPoints) {
-              var y3 = void 0;
-              var x3 = y3 = 0;
+              var y4 = void 0;
+              var x3 = y4 = 0;
               var res = [];
               for (var i4 = 0; i4 < nPoints; i4++) {
                 var dx = 0, dy = 0;
@@ -45496,8 +45496,8 @@
                   dy = withSign(flag >> 1, glyphs.readUInt16BE());
                 }
                 x3 += dx;
-                y3 += dy;
-                res.push(new Point(onCurve, false, x3, y3));
+                y4 += dy;
+                res.push(new Point(onCurve, false, x3, y4));
               }
               return res;
             }
@@ -47436,7 +47436,7 @@
                 }
               };
               LineWrapper2.prototype.wrap = function(text, options) {
-                var buffer, emitLine, lc, nextY, textWidth, wc, y3;
+                var buffer, emitLine, lc, nextY, textWidth, wc, y4;
                 if (options.indent != null) {
                   this.indent = options.indent;
                 }
@@ -47457,13 +47457,13 @@
                 textWidth = 0;
                 wc = 0;
                 lc = 0;
-                y3 = this.document.y;
+                y4 = this.document.y;
                 emitLine = /* @__PURE__ */ (function(_this) {
                   return function() {
                     options.textWidth = textWidth + _this.wordSpacing * (wc - 1);
                     options.wordCount = wc;
                     options.lineWidth = _this.lineWidth;
-                    y3 = _this.document.y;
+                    y4 = _this.document.y;
                     _this.emit("line", buffer, options, _this);
                     return lc++;
                   };
@@ -47538,7 +47538,7 @@
                     this.continuedX = 0;
                   }
                   this.continuedX += options.textWidth;
-                  return this.document.y = y3;
+                  return this.document.y = y4;
                 } else {
                   return this.document.x = this.startX;
                 }
@@ -47574,10 +47574,10 @@
         }, { "events": 187, "linebreak": 195 }], 207: [function(require2, module3, exports3) {
           (function() {
             module3.exports = {
-              annotate: function(x3, y3, w4, h3, options) {
+              annotate: function(x3, y4, w4, h3, options) {
                 var key, ref, val;
                 options.Type = "Annot";
-                options.Rect = this._convertRect(x3, y3, w4, h3);
+                options.Rect = this._convertRect(x3, y4, w4, h3);
                 options.Border = [0, 0, 0];
                 if (options.Subtype !== "Link") {
                   if (options.C == null) {
@@ -47597,7 +47597,7 @@
                 ref.end();
                 return this;
               },
-              note: function(x3, y3, w4, h3, contents, options) {
+              note: function(x3, y4, w4, h3, contents, options) {
                 if (options == null) {
                   options = {};
                 }
@@ -47607,9 +47607,9 @@
                 if (options.color == null) {
                   options.color = [243, 223, 92];
                 }
-                return this.annotate(x3, y3, w4, h3, options);
+                return this.annotate(x3, y4, w4, h3, options);
               },
-              link: function(x3, y3, w4, h3, url, options) {
+              link: function(x3, y4, w4, h3, url, options) {
                 if (options == null) {
                   options = {};
                 }
@@ -47619,19 +47619,19 @@
                   URI: new String(url)
                 });
                 options.A.end();
-                return this.annotate(x3, y3, w4, h3, options);
+                return this.annotate(x3, y4, w4, h3, options);
               },
-              _markup: function(x3, y3, w4, h3, options) {
+              _markup: function(x3, y4, w4, h3, options) {
                 var ref1, x1, x22, y1, y22;
                 if (options == null) {
                   options = {};
                 }
-                ref1 = this._convertRect(x3, y3, w4, h3), x1 = ref1[0], y1 = ref1[1], x22 = ref1[2], y22 = ref1[3];
+                ref1 = this._convertRect(x3, y4, w4, h3), x1 = ref1[0], y1 = ref1[1], x22 = ref1[2], y22 = ref1[3];
                 options.QuadPoints = [x1, y22, x22, y22, x1, y1, x22, y1];
                 options.Contents = new String();
-                return this.annotate(x3, y3, w4, h3, options);
+                return this.annotate(x3, y4, w4, h3, options);
               },
-              highlight: function(x3, y3, w4, h3, options) {
+              highlight: function(x3, y4, w4, h3, options) {
                 if (options == null) {
                   options = {};
                 }
@@ -47639,21 +47639,21 @@
                 if (options.color == null) {
                   options.color = [241, 238, 148];
                 }
-                return this._markup(x3, y3, w4, h3, options);
+                return this._markup(x3, y4, w4, h3, options);
               },
-              underline: function(x3, y3, w4, h3, options) {
+              underline: function(x3, y4, w4, h3, options) {
                 if (options == null) {
                   options = {};
                 }
                 options.Subtype = "Underline";
-                return this._markup(x3, y3, w4, h3, options);
+                return this._markup(x3, y4, w4, h3, options);
               },
-              strike: function(x3, y3, w4, h3, options) {
+              strike: function(x3, y4, w4, h3, options) {
                 if (options == null) {
                   options = {};
                 }
                 options.Subtype = "StrikeOut";
-                return this._markup(x3, y3, w4, h3, options);
+                return this._markup(x3, y4, w4, h3, options);
               },
               lineAnnotation: function(x1, y1, x22, y22, options) {
                 if (options == null) {
@@ -47664,30 +47664,30 @@
                 options.L = [x1, this.page.height - y1, x22, this.page.height - y22];
                 return this.annotate(x1, y1, x22, y22, options);
               },
-              rectAnnotation: function(x3, y3, w4, h3, options) {
+              rectAnnotation: function(x3, y4, w4, h3, options) {
                 if (options == null) {
                   options = {};
                 }
                 options.Subtype = "Square";
                 options.Contents = new String();
-                return this.annotate(x3, y3, w4, h3, options);
+                return this.annotate(x3, y4, w4, h3, options);
               },
-              ellipseAnnotation: function(x3, y3, w4, h3, options) {
+              ellipseAnnotation: function(x3, y4, w4, h3, options) {
                 if (options == null) {
                   options = {};
                 }
                 options.Subtype = "Circle";
                 options.Contents = new String();
-                return this.annotate(x3, y3, w4, h3, options);
+                return this.annotate(x3, y4, w4, h3, options);
               },
-              textAnnotation: function(x3, y3, w4, h3, text, options) {
+              textAnnotation: function(x3, y4, w4, h3, text, options) {
                 if (options == null) {
                   options = {};
                 }
                 options.Subtype = "FreeText";
                 options.Contents = new String(text);
                 options.DA = new String();
-                return this.annotate(x3, y3, w4, h3, options);
+                return this.annotate(x3, y4, w4, h3, options);
               },
               _convertRect: function(x1, y1, w4, h3) {
                 var m0, m1, m22, m32, m4, m5, ref1, x22, y22;
@@ -48074,7 +48074,7 @@
                 this._imageRegistry = {};
                 return this._imageCount = 0;
               },
-              image: function(src, x3, y3, options) {
+              image: function(src, x3, y4, options) {
                 var base, bh, bp, bw, h3, hp, image, ip, name, ref, ref1, ref2, ref3, w4, wp;
                 if (options == null) {
                   options = {};
@@ -48084,7 +48084,7 @@
                   x3 = null;
                 }
                 x3 = (ref = x3 != null ? x3 : options.x) != null ? ref : this.x;
-                y3 = (ref1 = y3 != null ? y3 : options.y) != null ? ref1 : this.y;
+                y4 = (ref1 = y4 != null ? y4 : options.y) != null ? ref1 : this.y;
                 if (typeof src === "string") {
                   image = this._imageRegistry[src];
                 }
@@ -48144,16 +48144,16 @@
                     x3 = x3 + bw - w4;
                   }
                   if (options.valign === "center") {
-                    y3 = y3 + bh / 2 - h3 / 2;
+                    y4 = y4 + bh / 2 - h3 / 2;
                   } else if (options.valign === "bottom") {
-                    y3 = y3 + bh - h3;
+                    y4 = y4 + bh - h3;
                   }
                 }
-                if (this.y === y3) {
+                if (this.y === y4) {
                   this.y += h3;
                 }
                 this.save();
-                this.transform(w4, 0, 0, -h3, x3, y3 + h3);
+                this.transform(w4, 0, 0, -h3, x3, y4 + h3);
                 this.addContent("/" + image.label + " Do");
                 this.restore();
                 return this;
@@ -48202,9 +48202,9 @@
                 this.y -= this.currentLineHeight(true) * lines + this._lineGap;
                 return this;
               },
-              _text: function(text, x3, y3, options, lineCallback) {
+              _text: function(text, x3, y4, options, lineCallback) {
                 var j4, len, line, ref, wrapper;
-                options = this._initOptions(x3, y3, options);
+                options = this._initOptions(x3, y4, options);
                 text = text == null ? "" : "" + text;
                 if (options.wordSpacing) {
                   text = text.replace(/\s{2,}/g, " ");
@@ -48227,8 +48227,8 @@
                 }
                 return this;
               },
-              text: function(text, x3, y3, options) {
-                return this._text(text, x3, y3, options, this._line.bind(this));
+              text: function(text, x3, y4, options) {
+                return this._text(text, x3, y4, options, this._line.bind(this));
               },
               widthOfString: function(string, options) {
                 if (options == null) {
@@ -48237,11 +48237,11 @@
                 return this._font.widthOfString(string, this._fontSize, options.features) + (options.characterSpacing || 0) * (string.length - 1);
               },
               heightOfString: function(text, options) {
-                var height, lineGap, ref, x3, y3;
+                var height, lineGap, ref, x3, y4;
                 if (options == null) {
                   options = {};
                 }
-                ref = this, x3 = ref.x, y3 = ref.y;
+                ref = this, x3 = ref.x, y4 = ref.y;
                 options = this._initOptions(options);
                 options.height = Infinity;
                 lineGap = options.lineGap || this._lineGap || 0;
@@ -48250,14 +48250,14 @@
                     return _this.y += _this.currentLineHeight(true) + lineGap;
                   };
                 })(this));
-                height = this.y - y3;
+                height = this.y - y4;
                 this.x = x3;
-                this.y = y3;
+                this.y = y4;
                 return height;
               },
-              list: function(list, x3, y3, options, wrapper) {
+              list: function(list, x3, y4, options, wrapper) {
                 var flatten, i3, indent, itemIndent, items, level, levels, midLine, r3;
-                options = this._initOptions(x3, y3, options);
+                options = this._initOptions(x3, y4, options);
                 midLine = Math.round(this._font.ascender / 1e3 * this._fontSize / 2);
                 r3 = options.bulletRadius || Math.round(this._font.ascender / 1e3 * this._fontSize / 3);
                 indent = options.textIndent || r3 * 5;
@@ -48318,7 +48318,7 @@
                 wrapper.wrap(items.join("\n"), options);
                 return this;
               },
-              _initOptions: function(x3, y3, options) {
+              _initOptions: function(x3, y4, options) {
                 var key, ref, val;
                 if (x3 == null) {
                   x3 = {};
@@ -48353,8 +48353,8 @@
                 if (x3 != null) {
                   this.x = x3;
                 }
-                if (y3 != null) {
-                  this.y = y3;
+                if (y4 != null) {
+                  this.y = y4;
                 }
                 if (options.lineBreak !== false) {
                   if (options.width == null) {
@@ -48380,7 +48380,7 @@
                   return this.y += this.currentLineHeight(true) + lineGap;
                 }
               },
-              _fragment: function(text, x3, y3, options) {
+              _fragment: function(text, x3, y4, options) {
                 var addSegment, align, base, characterSpacing, commands, d4, encoded, encodedWord, flush, hadOffset, i3, j4, key, last, len, len1, lineWidth, lineY, m4, mode, name, pos, positions, positionsWord, ref, ref1, ref2, renderedWidth, scale, space, spaceWidth, textWidth, val, word, wordSpacing, words;
                 text = ("" + text).replace(/\n/g, "");
                 if (text.length === 0) {
@@ -48407,7 +48407,7 @@
                 }
                 renderedWidth = options.textWidth + wordSpacing * (options.wordCount - 1) + characterSpacing * (text.length - 1);
                 if (options.link) {
-                  this.link(x3, y3, renderedWidth, this.currentLineHeight(), options.link);
+                  this.link(x3, y4, renderedWidth, this.currentLineHeight(), options.link);
                 }
                 if (options.underline || options.strike) {
                   this.save();
@@ -48417,7 +48417,7 @@
                   lineWidth = this._fontSize < 10 ? 0.5 : Math.floor(this._fontSize / 10);
                   this.lineWidth(lineWidth);
                   d4 = options.underline ? 1 : 2;
-                  lineY = y3 + this.currentLineHeight() / d4;
+                  lineY = y4 + this.currentLineHeight() / d4;
                   if (options.underline) {
                     lineY -= lineWidth;
                   }
@@ -48428,12 +48428,12 @@
                 }
                 this.save();
                 this.transform(1, 0, 0, -1, 0, this.page.height);
-                y3 = this.page.height - y3 - this._font.ascender / 1e3 * this._fontSize;
+                y4 = this.page.height - y4 - this._font.ascender / 1e3 * this._fontSize;
                 if ((base = this.page.fonts)[name = this._font.id] == null) {
                   base[name] = this._font.ref();
                 }
                 this.addContent("BT");
-                this.addContent("1 0 0 1 " + number(x3) + " " + number(y3) + " Tm");
+                this.addContent("1 0 0 1 " + number(x3) + " " + number(y4) + " Tm");
                 this.addContent("/" + this._font.id + " " + number(this._fontSize) + " Tf");
                 mode = options.fill && options.stroke ? 2 : options.stroke ? 1 : 0;
                 if (mode) {
@@ -48493,12 +48493,12 @@
                   pos = positions[i3];
                   if (pos.xOffset || pos.yOffset) {
                     flush(i3);
-                    this.addContent("1 0 0 1 " + number(x3 + pos.xOffset * scale) + " " + number(y3 + pos.yOffset * scale) + " Tm");
+                    this.addContent("1 0 0 1 " + number(x3 + pos.xOffset * scale) + " " + number(y4 + pos.yOffset * scale) + " Tm");
                     flush(i3 + 1);
                     hadOffset = true;
                   } else {
                     if (hadOffset) {
-                      this.addContent("1 0 0 1 " + number(x3) + " " + number(y3) + " Tm");
+                      this.addContent("1 0 0 1 " + number(x3) + " " + number(y4) + " Tm");
                       hadOffset = false;
                     }
                     if (pos.xAdvance - pos.advanceWidth !== 0) {
@@ -48592,63 +48592,63 @@
               undash: function() {
                 return this.addContent("[] 0 d");
               },
-              moveTo: function(x3, y3) {
-                return this.addContent(number(x3) + " " + number(y3) + " m");
+              moveTo: function(x3, y4) {
+                return this.addContent(number(x3) + " " + number(y4) + " m");
               },
-              lineTo: function(x3, y3) {
-                return this.addContent(number(x3) + " " + number(y3) + " l");
+              lineTo: function(x3, y4) {
+                return this.addContent(number(x3) + " " + number(y4) + " l");
               },
-              bezierCurveTo: function(cp1x, cp1y, cp2x, cp2y, x3, y3) {
-                return this.addContent(number(cp1x) + " " + number(cp1y) + " " + number(cp2x) + " " + number(cp2y) + " " + number(x3) + " " + number(y3) + " c");
+              bezierCurveTo: function(cp1x, cp1y, cp2x, cp2y, x3, y4) {
+                return this.addContent(number(cp1x) + " " + number(cp1y) + " " + number(cp2x) + " " + number(cp2y) + " " + number(x3) + " " + number(y4) + " c");
               },
-              quadraticCurveTo: function(cpx, cpy, x3, y3) {
-                return this.addContent(number(cpx) + " " + number(cpy) + " " + number(x3) + " " + number(y3) + " v");
+              quadraticCurveTo: function(cpx, cpy, x3, y4) {
+                return this.addContent(number(cpx) + " " + number(cpy) + " " + number(x3) + " " + number(y4) + " v");
               },
-              rect: function(x3, y3, w4, h3) {
-                return this.addContent(number(x3) + " " + number(y3) + " " + number(w4) + " " + number(h3) + " re");
+              rect: function(x3, y4, w4, h3) {
+                return this.addContent(number(x3) + " " + number(y4) + " " + number(w4) + " " + number(h3) + " re");
               },
-              roundedRect: function(x3, y3, w4, h3, r3) {
+              roundedRect: function(x3, y4, w4, h3, r3) {
                 var c3;
                 if (r3 == null) {
                   r3 = 0;
                 }
                 r3 = Math.min(r3, 0.5 * w4, 0.5 * h3);
                 c3 = r3 * (1 - KAPPA);
-                this.moveTo(x3 + r3, y3);
-                this.lineTo(x3 + w4 - r3, y3);
-                this.bezierCurveTo(x3 + w4 - c3, y3, x3 + w4, y3 + c3, x3 + w4, y3 + r3);
-                this.lineTo(x3 + w4, y3 + h3 - r3);
-                this.bezierCurveTo(x3 + w4, y3 + h3 - c3, x3 + w4 - c3, y3 + h3, x3 + w4 - r3, y3 + h3);
-                this.lineTo(x3 + r3, y3 + h3);
-                this.bezierCurveTo(x3 + c3, y3 + h3, x3, y3 + h3 - c3, x3, y3 + h3 - r3);
-                this.lineTo(x3, y3 + r3);
-                this.bezierCurveTo(x3, y3 + c3, x3 + c3, y3, x3 + r3, y3);
+                this.moveTo(x3 + r3, y4);
+                this.lineTo(x3 + w4 - r3, y4);
+                this.bezierCurveTo(x3 + w4 - c3, y4, x3 + w4, y4 + c3, x3 + w4, y4 + r3);
+                this.lineTo(x3 + w4, y4 + h3 - r3);
+                this.bezierCurveTo(x3 + w4, y4 + h3 - c3, x3 + w4 - c3, y4 + h3, x3 + w4 - r3, y4 + h3);
+                this.lineTo(x3 + r3, y4 + h3);
+                this.bezierCurveTo(x3 + c3, y4 + h3, x3, y4 + h3 - c3, x3, y4 + h3 - r3);
+                this.lineTo(x3, y4 + r3);
+                this.bezierCurveTo(x3, y4 + c3, x3 + c3, y4, x3 + r3, y4);
                 return this.closePath();
               },
-              ellipse: function(x3, y3, r1, r22) {
+              ellipse: function(x3, y4, r1, r22) {
                 var ox, oy, xe2, xm, ye2, ym;
                 if (r22 == null) {
                   r22 = r1;
                 }
                 x3 -= r1;
-                y3 -= r22;
+                y4 -= r22;
                 ox = r1 * KAPPA;
                 oy = r22 * KAPPA;
                 xe2 = x3 + r1 * 2;
-                ye2 = y3 + r22 * 2;
+                ye2 = y4 + r22 * 2;
                 xm = x3 + r1;
-                ym = y3 + r22;
+                ym = y4 + r22;
                 this.moveTo(x3, ym);
-                this.bezierCurveTo(x3, ym - oy, xm - ox, y3, xm, y3);
-                this.bezierCurveTo(xm + ox, y3, xe2, ym - oy, xe2, ym);
+                this.bezierCurveTo(x3, ym - oy, xm - ox, y4, xm, y4);
+                this.bezierCurveTo(xm + ox, y4, xe2, ym - oy, xe2, ym);
                 this.bezierCurveTo(xe2, ym + oy, xm + ox, ye2, xm, ye2);
                 this.bezierCurveTo(xm - ox, ye2, x3, ym + oy, x3, ym);
                 return this.closePath();
               },
-              circle: function(x3, y3, radius) {
-                return this.ellipse(x3, y3, radius);
+              circle: function(x3, y4, radius) {
+                return this.ellipse(x3, y4, radius);
               },
-              arc: function(x3, y3, radius, startAngle, endAngle, anticlockwise) {
+              arc: function(x3, y4, radius, startAngle, endAngle, anticlockwise) {
                 var HALF_PI, TWO_PI, ax, ay, cp1x, cp1y, cp2x, cp2y, curAng, deltaAng, deltaCx, deltaCy, dir, handleLen, i3, numSegs, ref, segAng, segIdx;
                 if (anticlockwise == null) {
                   anticlockwise = false;
@@ -48669,14 +48669,14 @@
                 deltaCx = -Math.sin(curAng) * handleLen;
                 deltaCy = Math.cos(curAng) * handleLen;
                 ax = x3 + Math.cos(curAng) * radius;
-                ay = y3 + Math.sin(curAng) * radius;
+                ay = y4 + Math.sin(curAng) * radius;
                 this.moveTo(ax, ay);
                 for (segIdx = i3 = 0, ref = numSegs; 0 <= ref ? i3 < ref : i3 > ref; segIdx = 0 <= ref ? ++i3 : --i3) {
                   cp1x = ax + deltaCx;
                   cp1y = ay + deltaCy;
                   curAng += segAng;
                   ax = x3 + Math.cos(curAng) * radius;
-                  ay = y3 + Math.sin(curAng) * radius;
+                  ay = y4 + Math.sin(curAng) * radius;
                   deltaCx = -Math.sin(curAng) * handleLen;
                   deltaCy = Math.cos(curAng) * handleLen;
                   cp2x = ax - deltaCx;
@@ -48766,29 +48766,29 @@
                 })().join(" ");
                 return this.addContent(values + " cm");
               },
-              translate: function(x3, y3) {
-                return this.transform(1, 0, 0, 1, x3, y3);
+              translate: function(x3, y4) {
+                return this.transform(1, 0, 0, 1, x3, y4);
               },
               rotate: function(angle, options) {
-                var cos, rad, ref, sin, x3, x1, y3, y1;
+                var cos, rad, ref, sin, x3, x1, y4, y1;
                 if (options == null) {
                   options = {};
                 }
                 rad = angle * Math.PI / 180;
                 cos = Math.cos(rad);
                 sin = Math.sin(rad);
-                x3 = y3 = 0;
+                x3 = y4 = 0;
                 if (options.origin != null) {
-                  ref = options.origin, x3 = ref[0], y3 = ref[1];
-                  x1 = x3 * cos - y3 * sin;
-                  y1 = x3 * sin + y3 * cos;
+                  ref = options.origin, x3 = ref[0], y4 = ref[1];
+                  x1 = x3 * cos - y4 * sin;
+                  y1 = x3 * sin + y4 * cos;
                   x3 -= x1;
-                  y3 -= y1;
+                  y4 -= y1;
                 }
-                return this.transform(cos, sin, -sin, cos, x3, y3);
+                return this.transform(cos, sin, -sin, cos, x3, y4);
               },
               scale: function(xFactor, yFactor, options) {
-                var ref, x3, y3;
+                var ref, x3, y4;
                 if (yFactor == null) {
                   yFactor = xFactor;
                 }
@@ -48799,13 +48799,13 @@
                   options = yFactor;
                   yFactor = xFactor;
                 }
-                x3 = y3 = 0;
+                x3 = y4 = 0;
                 if (options.origin != null) {
-                  ref = options.origin, x3 = ref[0], y3 = ref[1];
+                  ref = options.origin, x3 = ref[0], y4 = ref[1];
                   x3 -= xFactor * x3;
-                  y3 -= yFactor * y3;
+                  y4 -= yFactor * y4;
                 }
-                return this.transform(xFactor, 0, 0, yFactor, x3, y3);
+                return this.transform(xFactor, 0, 0, yFactor, x3, y4);
               }
             };
           }).call(this);
@@ -49330,10 +49330,10 @@
                   return cy = sy;
                 }
               };
-              solveArc = function(doc, x3, y3, coords) {
+              solveArc = function(doc, x3, y4, coords) {
                 var bez, ex, ey, j4, large, len, results, rot, rx, ry, seg, segs, sweep;
                 rx = coords[0], ry = coords[1], rot = coords[2], large = coords[3], sweep = coords[4], ex = coords[5], ey = coords[6];
-                segs = arcToSegments(ex, ey, rx, ry, large, sweep, rot, x3, y3);
+                segs = arcToSegments(ex, ey, rx, ry, large, sweep, rot, x3, y4);
                 results = [];
                 for (j4 = 0, len = segs.length; j4 < len; j4++) {
                   seg = segs[j4];
@@ -49342,15 +49342,15 @@
                 }
                 return results;
               };
-              arcToSegments = function(x3, y3, rx, ry, large, sweep, rotateX, ox, oy) {
+              arcToSegments = function(x3, y4, rx, ry, large, sweep, rotateX, ox, oy) {
                 var a00, a01, a10, a11, cos_th, d4, i3, j4, pl, ref, result, segments, sfactor, sfactor_sq, sin_th, th, th0, th1, th2, th3, th_arc, x0, x1, xc, y0, y1, yc;
                 th = rotateX * (Math.PI / 180);
                 sin_th = Math.sin(th);
                 cos_th = Math.cos(th);
                 rx = Math.abs(rx);
                 ry = Math.abs(ry);
-                px = cos_th * (ox - x3) * 0.5 + sin_th * (oy - y3) * 0.5;
-                py = cos_th * (oy - y3) * 0.5 - sin_th * (ox - x3) * 0.5;
+                px = cos_th * (ox - x3) * 0.5 + sin_th * (oy - y4) * 0.5;
+                py = cos_th * (oy - y4) * 0.5 - sin_th * (ox - x3) * 0.5;
                 pl = px * px / (rx * rx) + py * py / (ry * ry);
                 if (pl > 1) {
                   pl = Math.sqrt(pl);
@@ -49363,8 +49363,8 @@
                 a11 = cos_th / ry;
                 x0 = a00 * ox + a01 * oy;
                 y0 = a10 * ox + a11 * oy;
-                x1 = a00 * x3 + a01 * y3;
-                y1 = a10 * x3 + a11 * y3;
+                x1 = a00 * x3 + a01 * y4;
+                y1 = a10 * x3 + a11 * y4;
                 d4 = (x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0);
                 sfactor_sq = 1 / d4 - 0.25;
                 if (sfactor_sq < 0) {
@@ -49394,7 +49394,7 @@
                 return result;
               };
               segmentToBezier = function(cx2, cy2, th0, th1, rx, ry, sin_th, cos_th) {
-                var a00, a01, a10, a11, t3, th_half, x1, x22, x3, y1, y22, y3;
+                var a00, a01, a10, a11, t3, th_half, x1, x22, x3, y1, y22, y32;
                 a00 = cos_th * rx;
                 a01 = -sin_th * ry;
                 a10 = sin_th * rx;
@@ -49404,10 +49404,10 @@
                 x1 = cx2 + Math.cos(th0) - t3 * Math.sin(th0);
                 y1 = cy2 + Math.sin(th0) + t3 * Math.cos(th0);
                 x3 = cx2 + Math.cos(th1);
-                y3 = cy2 + Math.sin(th1);
+                y32 = cy2 + Math.sin(th1);
                 x22 = x3 + t3 * Math.sin(th1);
-                y22 = y3 - t3 * Math.cos(th1);
-                return [a00 * x1 + a01 * y1, a10 * x1 + a11 * y1, a00 * x22 + a01 * y22, a10 * x22 + a11 * y22, a00 * x3 + a01 * y3, a10 * x3 + a11 * y3];
+                y22 = y32 - t3 * Math.cos(th1);
+                return [a00 * x1 + a01 * y1, a10 * x1 + a11 * y1, a00 * x22 + a01 * y22, a10 * x22 + a11 * y22, a00 * x3 + a01 * y32, a10 * x3 + a11 * y32];
               };
               return SVGPath2;
             })();
@@ -59879,8 +59879,8 @@
     $.__r = 0;
   }
   function I(n2, l3, u6, t3, i3, r3, o3, e3, f4, c3, s3) {
-    var a3, h3, y3, w4, d4, g2, _3, m4 = t3 && t3.__k || v, b2 = l3.length;
-    for (f4 = P(u6, l3, m4, f4, b2), a3 = 0; a3 < b2; a3++) null != (y3 = u6.__k[a3]) && (h3 = -1 == y3.__i ? p : m4[y3.__i] || p, y3.__i = a3, g2 = O(n2, y3, h3, i3, r3, o3, e3, f4, c3, s3), w4 = y3.__e, y3.ref && h3.ref != y3.ref && (h3.ref && B(h3.ref, null, y3), s3.push(y3.ref, y3.__c || w4, y3)), null == d4 && null != w4 && (d4 = w4), (_3 = !!(4 & y3.__u)) || h3.__k === y3.__k ? f4 = A(y3, f4, n2, _3) : "function" == typeof y3.type && void 0 !== g2 ? f4 = g2 : w4 && (f4 = w4.nextSibling), y3.__u &= -7);
+    var a3, h3, y4, w4, d4, g2, _3, m4 = t3 && t3.__k || v, b2 = l3.length;
+    for (f4 = P(u6, l3, m4, f4, b2), a3 = 0; a3 < b2; a3++) null != (y4 = u6.__k[a3]) && (h3 = -1 == y4.__i ? p : m4[y4.__i] || p, y4.__i = a3, g2 = O(n2, y4, h3, i3, r3, o3, e3, f4, c3, s3), w4 = y4.__e, y4.ref && h3.ref != y4.ref && (h3.ref && B(h3.ref, null, y4), s3.push(y4.ref, y4.__c || w4, y4)), null == d4 && null != w4 && (d4 = w4), (_3 = !!(4 & y4.__u)) || h3.__k === y4.__k ? f4 = A(y4, f4, n2, _3) : "function" == typeof y4.type && void 0 !== g2 ? f4 = g2 : w4 && (f4 = w4.nextSibling), y4.__u &= -7);
     return u6.__e = d4, f4;
   }
   function P(n2, l3, u6, t3, i3) {
@@ -59941,11 +59941,11 @@
     };
   }
   function O(n2, u6, t3, i3, r3, o3, e3, f4, c3, s3) {
-    var a3, h3, p3, v4, y3, _3, m4, b2, S3, C4, M3, $3, P3, A2, H, L3, T4, j4 = u6.type;
+    var a3, h3, p3, v4, y4, _3, m4, b2, S3, C4, M3, $3, P3, A2, H, L3, T4, j4 = u6.type;
     if (null != u6.constructor) return null;
     128 & t3.__u && (c3 = !!(32 & t3.__u), o3 = [f4 = u6.__e = t3.__e]), (a3 = l.__b) && a3(u6);
     n: if ("function" == typeof j4) try {
-      if (b2 = u6.props, S3 = "prototype" in j4 && j4.prototype.render, C4 = (a3 = j4.contextType) && i3[a3.__c], M3 = a3 ? C4 ? C4.props.value : a3.__ : i3, t3.__c ? m4 = (h3 = u6.__c = t3.__c).__ = h3.__E : (S3 ? u6.__c = h3 = new j4(b2, M3) : (u6.__c = h3 = new x(b2, M3), h3.constructor = j4, h3.render = E), C4 && C4.sub(h3), h3.state || (h3.state = {}), h3.__n = i3, p3 = h3.__d = true, h3.__h = [], h3._sb = []), S3 && null == h3.__s && (h3.__s = h3.state), S3 && null != j4.getDerivedStateFromProps && (h3.__s == h3.state && (h3.__s = d({}, h3.__s)), d(h3.__s, j4.getDerivedStateFromProps(b2, h3.__s))), v4 = h3.props, y3 = h3.state, h3.__v = u6, p3) S3 && null == j4.getDerivedStateFromProps && null != h3.componentWillMount && h3.componentWillMount(), S3 && null != h3.componentDidMount && h3.__h.push(h3.componentDidMount);
+      if (b2 = u6.props, S3 = "prototype" in j4 && j4.prototype.render, C4 = (a3 = j4.contextType) && i3[a3.__c], M3 = a3 ? C4 ? C4.props.value : a3.__ : i3, t3.__c ? m4 = (h3 = u6.__c = t3.__c).__ = h3.__E : (S3 ? u6.__c = h3 = new j4(b2, M3) : (u6.__c = h3 = new x(b2, M3), h3.constructor = j4, h3.render = E), C4 && C4.sub(h3), h3.state || (h3.state = {}), h3.__n = i3, p3 = h3.__d = true, h3.__h = [], h3._sb = []), S3 && null == h3.__s && (h3.__s = h3.state), S3 && null != j4.getDerivedStateFromProps && (h3.__s == h3.state && (h3.__s = d({}, h3.__s)), d(h3.__s, j4.getDerivedStateFromProps(b2, h3.__s))), v4 = h3.props, y4 = h3.state, h3.__v = u6, p3) S3 && null == j4.getDerivedStateFromProps && null != h3.componentWillMount && h3.componentWillMount(), S3 && null != h3.componentDidMount && h3.__h.push(h3.componentDidMount);
       else {
         if (S3 && null == j4.getDerivedStateFromProps && b2 !== v4 && null != h3.componentWillReceiveProps && h3.componentWillReceiveProps(b2, M3), u6.__v == t3.__v || !h3.__e && null != h3.shouldComponentUpdate && false === h3.shouldComponentUpdate(b2, h3.__s, M3)) {
           for (u6.__v != t3.__v && (h3.props = b2, h3.state = h3.__s, h3.__d = false), u6.__e = t3.__e, u6.__k = t3.__k, u6.__k.some(function(n3) {
@@ -59955,7 +59955,7 @@
           break n;
         }
         null != h3.componentWillUpdate && h3.componentWillUpdate(b2, h3.__s, M3), S3 && null != h3.componentDidUpdate && h3.__h.push(function() {
-          h3.componentDidUpdate(v4, y3, _3);
+          h3.componentDidUpdate(v4, y4, _3);
         });
       }
       if (h3.context = M3, h3.props = b2, h3.__P = n2, h3.__e = false, P3 = l.__r, A2 = 0, S3) {
@@ -59964,7 +59964,7 @@
       } else do {
         h3.__d = false, P3 && P3(u6), a3 = h3.render(h3.props, h3.state, h3.context), h3.state = h3.__s;
       } while (h3.__d && ++A2 < 25);
-      h3.state = h3.__s, null != h3.getChildContext && (i3 = d(d({}, i3), h3.getChildContext())), S3 && !p3 && null != h3.getSnapshotBeforeUpdate && (_3 = h3.getSnapshotBeforeUpdate(v4, y3)), L3 = a3, null != a3 && a3.type === k && null == a3.key && (L3 = V(a3.props.children)), f4 = I(n2, w(L3) ? L3 : [L3], u6, t3, i3, r3, o3, e3, f4, c3, s3), h3.base = u6.__e, u6.__u &= -161, h3.__h.length && e3.push(h3), m4 && (h3.__E = h3.__ = null);
+      h3.state = h3.__s, null != h3.getChildContext && (i3 = d(d({}, i3), h3.getChildContext())), S3 && !p3 && null != h3.getSnapshotBeforeUpdate && (_3 = h3.getSnapshotBeforeUpdate(v4, y4)), L3 = a3, null != a3 && a3.type === k && null == a3.key && (L3 = V(a3.props.children)), f4 = I(n2, w(L3) ? L3 : [L3], u6, t3, i3, r3, o3, e3, f4, c3, s3), h3.base = u6.__e, u6.__u &= -161, h3.__h.length && e3.push(h3), m4 && (h3.__E = h3.__ = null);
     } catch (n3) {
       if (u6.__v = null, c3 || null != o3) if (n3.then) {
         for (u6.__u |= c3 ? 160 : 128; f4 && 8 == f4.nodeType && f4.nextSibling; ) f4 = f4.nextSibling;
@@ -59998,7 +59998,7 @@
     return "object" != typeof n2 || null == n2 || n2.__b && n2.__b > 0 ? n2 : w(n2) ? n2.map(V) : d({}, n2);
   }
   function q(u6, t3, i3, r3, o3, e3, f4, c3, s3) {
-    var a3, h3, v4, y3, d4, _3, m4, b2 = i3.props || p, k4 = t3.props, x3 = t3.type;
+    var a3, h3, v4, y4, d4, _3, m4, b2 = i3.props || p, k4 = t3.props, x3 = t3.type;
     if ("svg" == x3 ? o3 = "http://www.w3.org/2000/svg" : "math" == x3 ? o3 = "http://www.w3.org/1998/Math/MathML" : o3 || (o3 = "http://www.w3.org/1999/xhtml"), null != e3) {
       for (a3 = 0; a3 < e3.length; a3++) if ((d4 = e3[a3]) && "setAttribute" in d4 == !!x3 && (x3 ? d4.localName == x3 : 3 == d4.nodeType)) {
         u6 = d4, e3[a3] = null;
@@ -60018,9 +60018,9 @@
         if ("value" == a3 && "defaultValue" in k4 || "checked" == a3 && "defaultChecked" in k4) continue;
         j(u6, a3, null, d4, o3);
       }
-      for (a3 in k4) d4 = k4[a3], "children" == a3 ? y3 = d4 : "dangerouslySetInnerHTML" == a3 ? h3 = d4 : "value" == a3 ? _3 = d4 : "checked" == a3 ? m4 = d4 : c3 && "function" != typeof d4 || b2[a3] === d4 || j(u6, a3, d4, b2[a3], o3);
+      for (a3 in k4) d4 = k4[a3], "children" == a3 ? y4 = d4 : "dangerouslySetInnerHTML" == a3 ? h3 = d4 : "value" == a3 ? _3 = d4 : "checked" == a3 ? m4 = d4 : c3 && "function" != typeof d4 || b2[a3] === d4 || j(u6, a3, d4, b2[a3], o3);
       if (h3) c3 || v4 && (h3.__html == v4.__html || h3.__html == u6.innerHTML) || (u6.innerHTML = h3.__html), t3.__k = [];
-      else if (v4 && (u6.innerHTML = ""), I("template" == t3.type ? u6.content : u6, w(y3) ? y3 : [y3], t3, i3, r3, "foreignObject" == x3 ? "http://www.w3.org/1999/xhtml" : o3, e3, f4, e3 ? e3[0] : i3.__k && S(i3, 0), c3, s3), null != e3) for (a3 = e3.length; a3--; ) g(e3[a3]);
+      else if (v4 && (u6.innerHTML = ""), I("template" == t3.type ? u6.content : u6, w(y4) ? y4 : [y4], t3, i3, r3, "foreignObject" == x3 ? "http://www.w3.org/1999/xhtml" : o3, e3, f4, e3 ? e3[0] : i3.__k && S(i3, 0), c3, s3), null != e3) for (a3 = e3.length; a3--; ) g(e3[a3]);
       c3 || (a3 = "value", "progress" == x3 && null == _3 ? u6.removeAttribute("value") : null != _3 && (_3 !== u6[a3] || "progress" == x3 && !_3 || "option" == x3 && _3 != b2[a3]) && j(u6, a3, _3, b2[a3], o3), a3 = "checked", null != m4 && m4 != u6[a3] && j(u6, a3, m4, b2[a3], o3));
     }
     return u6;
@@ -60132,6 +60132,10 @@
       }, r2.shouldComponentUpdate = f4;
     }
     return o3.__N || o3.__;
+  }
+  function y2(n2, u6) {
+    var i3 = p2(t2++, 3);
+    !c2.__s && C2(i3.__H, u6) && (i3.__ = n2, i3.u = u6, r2.__H.__h.push(i3));
   }
   function T2(n2, r3) {
     var u6 = p2(t2++, 7);
@@ -60380,6 +60384,16 @@
   function getPlaceholders(headers) {
     return headers.map((h3) => `<<${h3}>>`);
   }
+  function getUsedPlaceholders(template) {
+    const matches = template.matchAll(/<<([^>]+)>>/g);
+    const placeholders = /* @__PURE__ */ new Set();
+    for (const match of matches) {
+      if (match[1]) {
+        placeholders.add(match[1].trim());
+      }
+    }
+    return Array.from(placeholders);
+  }
 
   // src/markdown.ts
   init_polyfills();
@@ -60534,7 +60548,7 @@
     }).join(`
 `);
   }
-  var y2 = class {
+  var y3 = class {
     options;
     rules;
     lexer;
@@ -60840,7 +60854,7 @@ ${c3}` : c3;
     inlineQueue;
     tokenizer;
     constructor(e3) {
-      this.tokens = [], this.tokens.links = /* @__PURE__ */ Object.create(null), this.options = e3 || T3, this.options.tokenizer = this.options.tokenizer || new y2(), this.tokenizer = this.options.tokenizer, this.tokenizer.options = this.options, this.tokenizer.lexer = this, this.inlineQueue = [], this.state = { inLink: false, inRawBlock: false, top: true };
+      this.tokens = [], this.tokens.links = /* @__PURE__ */ Object.create(null), this.options = e3 || T3, this.options.tokenizer = this.options.tokenizer || new y3(), this.tokenizer = this.options.tokenizer, this.tokenizer.options = this.options, this.tokenizer.lexer = this, this.inlineQueue = [], this.state = { inLink: false, inRawBlock: false, top: true };
       let t3 = { other: m3, block: E2.normal, inline: M2.normal };
       this.options.pedantic ? (t3.block = E2.pedantic, t3.inline = M2.pedantic) : this.options.gfm && (t3.block = E2.gfm, this.options.breaks ? t3.inline = M2.breaks : t3.inline = M2.gfm), this.tokenizer.rules = t3;
     }
@@ -61377,7 +61391,7 @@ ${e3}</tr>
     Renderer = P2;
     TextRenderer = $2;
     Lexer = x2;
-    Tokenizer = y2;
+    Tokenizer = y3;
     Hooks = S2;
     constructor(...e3) {
       this.use(...e3);
@@ -61439,7 +61453,7 @@ ${e3}</tr>
           r3.renderer = i3;
         }
         if (n2.tokenizer) {
-          let i3 = this.defaults.tokenizer || new y2(this.defaults);
+          let i3 = this.defaults.tokenizer || new y3(this.defaults);
           for (let s3 in n2.tokenizer) {
             if (!(s3 in i3)) throw new Error(`tokenizer '${s3}' does not exist`);
             if (["options", "rules", "lexer"].includes(s3)) continue;
@@ -61551,7 +61565,7 @@ Please report this to https://github.com/markedjs/marked.`, e3) {
   d3.TextRenderer = $2;
   d3.Lexer = x2;
   d3.lexer = x2.lex;
-  d3.Tokenizer = y2;
+  d3.Tokenizer = y3;
   d3.Hooks = S2;
   d3.parse = d3;
   var Dt = d3.options;
@@ -62177,16 +62191,16 @@ Please report this to https://github.com/markedjs/marked.`, e3) {
             const record = data[dataIndex];
             if (!record) continue;
             const x3 = format.marginLeft + col * (format.labelWidth + format.horizontalGap);
-            const y3 = format.marginTop + row * (format.labelHeight + format.verticalGap);
+            const y4 = format.marginTop + row * (format.labelHeight + format.verticalGap);
             if (showBorders) {
-              doc.rect(x3, y3, format.labelWidth, format.labelHeight).stroke("#CCCCCC");
+              doc.rect(x3, y4, format.labelWidth, format.labelHeight).stroke("#CCCCCC");
             }
             const content = applyTemplate(template, record);
             renderLabelContent(
               doc,
               content,
               x3 + padding,
-              y3 + padding,
+              y4 + padding,
               format.labelWidth - padding * 2,
               format.labelHeight - padding * 2,
               fontSize,
@@ -62211,9 +62225,9 @@ Please report this to https://github.com/markedjs/marked.`, e3) {
     for (let row = 0; row <= format.rows; row++) {
       for (let col = 0; col <= format.columns; col++) {
         const x3 = format.marginLeft + col * (format.labelWidth + format.horizontalGap);
-        const y3 = format.marginTop + row * (format.labelHeight + format.verticalGap);
+        const y4 = format.marginTop + row * (format.labelHeight + format.verticalGap);
         const adjustedX = col > 0 ? x3 - format.horizontalGap / 2 : x3;
-        const adjustedY = row > 0 ? y3 - format.verticalGap / 2 : y3;
+        const adjustedY = row > 0 ? y4 - format.verticalGap / 2 : y4;
         if (row === 0 || col === 0) {
           doc.moveTo(adjustedX - markOffset - markLength, adjustedY).lineTo(adjustedX - markOffset, adjustedY).stroke();
           doc.moveTo(adjustedX, adjustedY - markOffset - markLength).lineTo(adjustedX, adjustedY - markOffset).stroke();
@@ -62233,16 +62247,16 @@ Please report this to https://github.com/markedjs/marked.`, e3) {
       }
     }
   }
-  function renderLabelContent(doc, content, x3, y3, width, height, fontSize, textAlign, verticalAlign) {
+  function renderLabelContent(doc, content, x3, y4, width, height, fontSize, textAlign, verticalAlign) {
     const segments = parseMarkdownToSegments(content);
     const lineHeight = fontSize * 1.2;
     const lines = splitIntoLines(segments, doc, width, fontSize);
     const totalHeight = lines.length * lineHeight;
-    let startY = y3;
+    let startY = y4;
     if (verticalAlign === "middle") {
-      startY = y3 + (height - totalHeight) / 2;
+      startY = y4 + (height - totalHeight) / 2;
     } else if (verticalAlign === "bottom") {
-      startY = y3 + height - totalHeight;
+      startY = y4 + height - totalHeight;
     }
     let currentY = startY;
     for (const line of lines) {
@@ -62336,20 +62350,101 @@ Please report this to https://github.com/markedjs/marked.`, e3) {
   }
 
   // src/app.tsx
+  var SAMPLE_CSV_DATA = `FirstName,LastName,Address,City,State,Zip
+John,Doe,123 Main St,Anytown,CA,90210
+Jane,Smith,456 Oak Ave,Springfield,IL,62701
+Bob,Johnson,789 Pine Rd,Somewhere,TX,75001`;
+  var SAMPLE_TEMPLATE = `<<Firstname>> <<Lastname>>
+<<Address>>
+<<City>>, <<State>> <<Zip>>`;
+  var STORAGE_KEYS = {
+    CSV_INPUT: "lmm_csvInput",
+    TEMPLATE: "lmm_template",
+    SELECTED_FORMAT: "lmm_selectedFormat",
+    SHOW_CUT_MARKS: "lmm_showCutMarks",
+    SHOW_BORDERS: "lmm_showBorders",
+    FONT_SIZE: "lmm_fontSize",
+    TEXT_ALIGN: "lmm_textAlign",
+    VERTICAL_ALIGN: "lmm_verticalAlign",
+    PADDING: "lmm_padding"
+  };
+  function loadFromStorage(key, defaultValue) {
+    try {
+      const stored = localStorage.getItem(key);
+      if (stored !== null) {
+        return JSON.parse(stored);
+      }
+    } catch (e3) {
+      console.error(`Error loading ${key} from localStorage:`, e3);
+    }
+    return defaultValue;
+  }
+  function saveToStorage(key, value) {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (e3) {
+      console.error(`Error saving ${key} to localStorage:`, e3);
+    }
+  }
   var App = () => {
-    const [csvInput, setCsvInput] = d2("");
-    const [template, setTemplate] = d2("<<FirstName>> <<LastName>>\n<<Address>>\n<<City>>, <<State>> <<Zip>>");
+    const [csvInput, setCsvInput] = d2(
+      () => loadFromStorage(STORAGE_KEYS.CSV_INPUT, SAMPLE_CSV_DATA)
+    );
+    const [template, setTemplate] = d2(
+      () => loadFromStorage(STORAGE_KEYS.TEMPLATE, SAMPLE_TEMPLATE)
+    );
     const [formatSearch, setFormatSearch] = d2("");
-    const [selectedFormatId, setSelectedFormatId] = d2("avery-5160");
+    const [selectedFormatId, setSelectedFormatId] = d2(
+      () => loadFromStorage(STORAGE_KEYS.SELECTED_FORMAT, "avery-5160")
+    );
     const [showFormatDropdown, setShowFormatDropdown] = d2(false);
-    const [showCutMarks, setShowCutMarks] = d2(false);
-    const [showBorders, setShowBorders] = d2(false);
-    const [fontSize, setFontSize] = d2(10);
-    const [textAlign, setTextAlign] = d2("left");
-    const [verticalAlign, setVerticalAlign] = d2("middle");
-    const [padding, setPadding] = d2(5);
+    const [showCutMarks, setShowCutMarks] = d2(
+      () => loadFromStorage(STORAGE_KEYS.SHOW_CUT_MARKS, false)
+    );
+    const [showBorders, setShowBorders] = d2(
+      () => loadFromStorage(STORAGE_KEYS.SHOW_BORDERS, false)
+    );
+    const [fontSize, setFontSize] = d2(
+      () => loadFromStorage(STORAGE_KEYS.FONT_SIZE, 10)
+    );
+    const [textAlign, setTextAlign] = d2(
+      () => loadFromStorage(STORAGE_KEYS.TEXT_ALIGN, "left")
+    );
+    const [verticalAlign, setVerticalAlign] = d2(
+      () => loadFromStorage(STORAGE_KEYS.VERTICAL_ALIGN, "middle")
+    );
+    const [padding, setPadding] = d2(
+      () => loadFromStorage(STORAGE_KEYS.PADDING, 5)
+    );
     const [isGenerating, setIsGenerating] = d2(false);
     const [error, setError] = d2(null);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.CSV_INPUT, csvInput);
+    }, [csvInput]);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.TEMPLATE, template);
+    }, [template]);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.SELECTED_FORMAT, selectedFormatId);
+    }, [selectedFormatId]);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.SHOW_CUT_MARKS, showCutMarks);
+    }, [showCutMarks]);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.SHOW_BORDERS, showBorders);
+    }, [showBorders]);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.FONT_SIZE, fontSize);
+    }, [fontSize]);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.TEXT_ALIGN, textAlign);
+    }, [textAlign]);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.VERTICAL_ALIGN, verticalAlign);
+    }, [verticalAlign]);
+    y2(() => {
+      saveToStorage(STORAGE_KEYS.PADDING, padding);
+    }, [padding]);
     const parsedData = T2(() => {
       if (!csvInput.trim()) {
         return { headers: [], rows: [], hasHeaders: false };
@@ -62363,6 +62458,11 @@ Please report this to https://github.com/markedjs/marked.`, e3) {
     const placeholders = T2(() => {
       return getPlaceholders(parsedData.headers);
     }, [parsedData.headers]);
+    const unknownPlaceholders = T2(() => {
+      const usedPlaceholders = getUsedPlaceholders(template);
+      const availableHeaders = new Set(parsedData.headers);
+      return usedPlaceholders.filter((p3) => !availableHeaders.has(p3));
+    }, [template, parsedData.headers]);
     const previewData = T2(() => {
       if (parsedData.rows.length === 0) return {};
       return parsedData.rows[1] ?? parsedData.rows[0] ?? {};
@@ -62487,6 +62587,15 @@ Please report this to https://github.com/markedjs/marked.`, e3) {
                 rows: 5
               }
             ),
+            unknownPlaceholders.length > 0 && /* @__PURE__ */ u5("div", { class: "warning-message", children: [
+              /* @__PURE__ */ u5("strong", { children: [
+                "\u26A0\uFE0F Unknown placeholder",
+                unknownPlaceholders.length !== 1 ? "s" : "",
+                ":"
+              ] }),
+              " ",
+              unknownPlaceholders.map((p3) => `<<${p3}>>`).join(", ")
+            ] }),
             /* @__PURE__ */ u5("div", { class: "format-help", children: [
               /* @__PURE__ */ u5("span", { class: "label", children: "Formatting:" }),
               /* @__PURE__ */ u5("code", { children: "**bold**" }),
