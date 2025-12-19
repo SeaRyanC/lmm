@@ -1,31 +1,131 @@
-import { useState, useMemo, useCallback } from 'preact/hooks';
+import { useState, useMemo, useCallback, useEffect } from 'preact/hooks';
 import type { FunctionComponent } from 'preact';
-import { parseCSV, applyTemplate, getPlaceholders } from './csv-parser';
+import { parseCSV, applyTemplate, getPlaceholders, getUsedPlaceholders } from './csv-parser';
 import { parseMarkdown } from './markdown';
 import { paperFormats, searchFormats, type PaperFormat } from './paper-formats';
 import { generatePDF, type PDFOptions } from './pdf-generator';
 
+// Sample data for new sessions
+const SAMPLE_CSV_DATA = `FirstName,LastName,Address,City,State,Zip
+John,Doe,123 Main St,Anytown,CA,90210
+Jane,Smith,456 Oak Ave,Springfield,IL,62701
+Bob,Johnson,789 Pine Rd,Somewhere,TX,75001`;
+
+const SAMPLE_TEMPLATE = `<<Firstname>> <<Lastname>>
+<<Address>>
+<<City>>, <<State>> <<Zip>>`;
+
+// LocalStorage keys
+const STORAGE_KEYS = {
+  CSV_INPUT: 'lmm_csvInput',
+  TEMPLATE: 'lmm_template',
+  SELECTED_FORMAT: 'lmm_selectedFormat',
+  SHOW_CUT_MARKS: 'lmm_showCutMarks',
+  SHOW_BORDERS: 'lmm_showBorders',
+  FONT_SIZE: 'lmm_fontSize',
+  TEXT_ALIGN: 'lmm_textAlign',
+  VERTICAL_ALIGN: 'lmm_verticalAlign',
+  PADDING: 'lmm_padding',
+};
+
+// Load from localStorage or return default
+function loadFromStorage<T>(key: string, defaultValue: T): T {
+  try {
+    const stored = localStorage.getItem(key);
+    if (stored !== null) {
+      return JSON.parse(stored);
+    }
+  } catch (e) {
+    console.error(`Error loading ${key} from localStorage:`, e);
+  }
+  return defaultValue;
+}
+
+// Save to localStorage
+function saveToStorage<T>(key: string, value: T): void {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (e) {
+    console.error(`Error saving ${key} to localStorage:`, e);
+  }
+}
+
 export const App: FunctionComponent = () => {
-  // Data input state
-  const [csvInput, setCsvInput] = useState<string>('');
-  const [template, setTemplate] = useState<string>('<<FirstName>> <<LastName>>\n<<Address>>\n<<City>>, <<State>> <<Zip>>');
+  // Data input state - load from localStorage or use sample data
+  const [csvInput, setCsvInput] = useState<string>(() => 
+    loadFromStorage(STORAGE_KEYS.CSV_INPUT, SAMPLE_CSV_DATA)
+  );
+  const [template, setTemplate] = useState<string>(() =>
+    loadFromStorage(STORAGE_KEYS.TEMPLATE, SAMPLE_TEMPLATE)
+  );
   
   // Format selection state
   const [formatSearch, setFormatSearch] = useState<string>('');
-  const [selectedFormatId, setSelectedFormatId] = useState<string>('avery-5160');
+  const [selectedFormatId, setSelectedFormatId] = useState<string>(() =>
+    loadFromStorage(STORAGE_KEYS.SELECTED_FORMAT, 'avery-5160')
+  );
   const [showFormatDropdown, setShowFormatDropdown] = useState<boolean>(false);
   
-  // PDF options
-  const [showCutMarks, setShowCutMarks] = useState<boolean>(false);
-  const [showBorders, setShowBorders] = useState<boolean>(false);
-  const [fontSize, setFontSize] = useState<number>(10);
-  const [textAlign, setTextAlign] = useState<'left' | 'center' | 'right'>('left');
-  const [verticalAlign, setVerticalAlign] = useState<'top' | 'middle' | 'bottom'>('middle');
-  const [padding, setPadding] = useState<number>(5);
+  // PDF options - load from localStorage
+  const [showCutMarks, setShowCutMarks] = useState<boolean>(() =>
+    loadFromStorage(STORAGE_KEYS.SHOW_CUT_MARKS, false)
+  );
+  const [showBorders, setShowBorders] = useState<boolean>(() =>
+    loadFromStorage(STORAGE_KEYS.SHOW_BORDERS, false)
+  );
+  const [fontSize, setFontSize] = useState<number>(() =>
+    loadFromStorage(STORAGE_KEYS.FONT_SIZE, 10)
+  );
+  const [textAlign, setTextAlign] = useState<'left' | 'center' | 'right'>(() =>
+    loadFromStorage(STORAGE_KEYS.TEXT_ALIGN, 'left')
+  );
+  const [verticalAlign, setVerticalAlign] = useState<'top' | 'middle' | 'bottom'>(() =>
+    loadFromStorage(STORAGE_KEYS.VERTICAL_ALIGN, 'middle')
+  );
+  const [padding, setPadding] = useState<number>(() =>
+    loadFromStorage(STORAGE_KEYS.PADDING, 5)
+  );
   
   // UI state
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Save to localStorage whenever state changes
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.CSV_INPUT, csvInput);
+  }, [csvInput]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.TEMPLATE, template);
+  }, [template]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.SELECTED_FORMAT, selectedFormatId);
+  }, [selectedFormatId]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.SHOW_CUT_MARKS, showCutMarks);
+  }, [showCutMarks]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.SHOW_BORDERS, showBorders);
+  }, [showBorders]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.FONT_SIZE, fontSize);
+  }, [fontSize]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.TEXT_ALIGN, textAlign);
+  }, [textAlign]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.VERTICAL_ALIGN, verticalAlign);
+  }, [verticalAlign]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.PADDING, padding);
+  }, [padding]);
 
   // Parse CSV data
   const parsedData = useMemo(() => {
@@ -43,6 +143,13 @@ export const App: FunctionComponent = () => {
   const placeholders = useMemo(() => {
     return getPlaceholders(parsedData.headers);
   }, [parsedData.headers]);
+
+  // Detect unknown placeholders used in template
+  const unknownPlaceholders = useMemo(() => {
+    const usedPlaceholders = getUsedPlaceholders(template);
+    const availableHeaders = new Set(parsedData.headers);
+    return usedPlaceholders.filter(p => !availableHeaders.has(p));
+  }, [template, parsedData.headers]);
 
   // Preview using second row (or first if only one row)
   const previewData = useMemo(() => {
@@ -183,6 +290,12 @@ export const App: FunctionComponent = () => {
               placeholder="<<FirstName>> <<LastName>>&#10;<<Address>>&#10;<<City>>, <<State>> <<Zip>>"
               rows={5}
             />
+            
+            {unknownPlaceholders.length > 0 && (
+              <div class="warning-message">
+                <strong>⚠️ Unknown placeholder{unknownPlaceholders.length !== 1 ? 's' : ''}:</strong> {unknownPlaceholders.map(p => `<<${p}>>`).join(', ')}
+              </div>
+            )}
             
             <div class="format-help">
               <span class="label">Formatting:</span>
