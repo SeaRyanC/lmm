@@ -161,3 +161,14 @@ export function applyTemplate(template: string, data: Record<string, string>): s
 export function getPlaceholders(headers: string[]): string[] {
   return headers.map(h => `<<${h}>>`);
 }
+
+export function getUsedPlaceholders(template: string): string[] {
+  const matches = template.matchAll(/<<([^>]+)>>/g);
+  const placeholders = new Set<string>();
+  for (const match of matches) {
+    if (match[1]) {
+      placeholders.add(match[1].trim());
+    }
+  }
+  return Array.from(placeholders);
+}
